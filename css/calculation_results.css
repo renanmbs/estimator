@@ -1,0 +1,228 @@
+:root {
+  --monarch-red: #C31F27;;
+  --dark-red: #622D32;
+  --black: #000000;
+  --steel-gray: #333B41;
+  --aluminum-blue: #F0F4F7; /* Lighter version of 7A8EA1 for BG */
+  --stainless-gray: #CCCCCC;
+  --white: #FFFFFF;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--aluminum-blue);
+  color: var(--steel-gray);
+  margin: 0;
+}
+
+/* 1. Sleek Floating Header */
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--white);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#logo {
+  height: 3.5rem;
+  width: auto;
+}
+
+#downloadPdfBtn {
+  background: var(--monarch-red);
+  color: var(--white);
+  
+  /* Start as a circle */
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  border-radius: 50px;
+  border: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0; /* No gap initially */
+  
+  overflow: hidden; /* Important for hiding the text */
+  cursor: pointer;
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap;
+}
+
+/* Create a span for the text in your HTML to control its visibility */
+#downloadPdfBtn span {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* Hover State */
+#downloadPdfBtn:hover {
+  width: 300px; /* Expands to fit text */
+  gap: 12px;
+  padding: 0 20px;
+}
+
+#downloadPdfBtn:hover span {
+  max-width: 200px; /* Reveal text */
+  opacity: 1;
+}
+
+/* Keep the SVG centered inside the circle initially */
+#downloadPdfBtn svg {
+  flex-shrink: 0; /* Prevents icon from squishing */
+}
+
+/* Secondary Table Buttons - "The Link Style" */
+.download_btn_draw {
+  background: #FFFFFF;
+  color: #333B41; /* Steel Gray */
+  border: 1.5px solid #CCCCCC; /* Stainless Gray */
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download_btn_draw:hover {
+  border-color: #C31F27;
+  color: #C31F27;
+  background-color: rgba(195, 31, 39, 0.03);
+}
+
+/* 3. The Info Banner */
+#total-banner {
+  background: transparent;
+  color: var(--white);
+  padding: 0 2rem;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.price-highlight {
+  color: var(--black); /* Hex #000000 from your palette */
+  font-weight: 700;    /* Extra bold for the price */
+  margin-left: 5px;
+}
+#total-value {
+  font-size: 2.5rem;
+  color: var(--monarch-red); /* Highlight the price in brand red */
+  font-weight: 500;
+}
+
+/* 4. Modern Table (Borderless Design) */
+.table-wrapper {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  padding: 1rem;
+  margin:2rem;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  background-color: transparent;
+  color: var(--black);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1.5rem 1rem;
+  border-bottom: 2px solid var(--aluminum-blue);
+  text-align: center;
+}
+
+td {
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Subtle Row Animations */
+tbody tr {
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #F9FAFB;
+}
+
+/* 5. Drawing Button - Clean Link Style */
+.download_btn_draw {
+  background: transparent;
+  color: var(--monarch-red);
+  border: 2px solid var(--monarch-red);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: 0.7s all ease;
+  cursor: pointer;
+}
+
+.download_btn_draw:hover {
+  background: var(--monarch-red);
+  color: var(--white);
+}
+
+.header-left, .header-right {
+  flex: 1; /* Gives equal weight to sides so center stays true */
+}
+
+.header-center {
+  flex: 2; /* Gives the middle more room than the sides */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-header-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+#customer-name-display {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#project-name-display {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--monarch-red); /* Using your brand red for the project sub-text */
+  text-transform: none;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+}

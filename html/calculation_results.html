@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculation Results</title>
+  <link rel="icon" href="../img/image/Monarch3Logo.svg">
+  <link rel="stylesheet" href="../css/calculation_results.css" />
+</head>
+
+<body>
+  <header class="results-header">
+    <div class="header-left">
+      <a href="../index.html">
+        <img src="../img/image/Monarch3Logo.svg" id="logo" alt="Logo" />
+      </a>
+    </div>
+
+    <div class="header-center">
+      <div class="project-header-group">
+        <div id="customer-name-display"></div>
+        <div id="project-name-display"></div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="downloadPdfBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Download Full Report</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="results-container">
+
+    <div class="table-wrapper">
+      <table id="resultsTable"></table>
+    </div>
+
+    <div id="total-banner">
+      <span id="total-value"></span>
+    </div>
+
+  </main>
+
+  <!-- jsPDF + AutoTable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvg/dist/browser/canvg.min.js"></script>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.11.0/jszip.min.js"></script>
+  <script src="../js/pdf.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monarch Metal Custom Z Clip Configurator</title>
+  <link rel="stylesheet" href="./css/stylesheet.css" />
+  <link rel="icon" href="./img/image/Monarch3Logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- <div id="auth-screen" class="auth-screen">
+    <div class="auth-card">
+      <img src="./img/image/Monarch Metal White Transparent.png" alt="Monarch Logo" class="auth-logo">
+      <div class="auth-hero">
+        <h1 class="auth-title">Access Restricted</h1>
+        <p class="auth-subtitle">
+          Please sign in to access this Monarch Metal tool
+        </p>
+      </div>
+      <div class="auth-buttons">
+        <button id="loginBtn" class="btn auth-primary">Sign in with Google</button>
+      </div>
+      <p class="auth-footnote">Authorized Personnel Only</p>
+    </div>
+  </div> -->
+
+  <div id="app" class="hidden">
+
+    <header class="app-header">
+      <div class="header-section left">
+        <a href="https://monarchintranet.netlify.app/" class="logo-heada">
+          <img src="./img/image/Monarch3Logo.svg" class="logo-head" alt="Monarch Intranet">
+        </a>
+      </div>
+
+      <div class="header-section center">
+        <h1>Custom Z Clip Configurator</h1>
+      </div>
+
+      <div class="header-section right">
+        <div class="help-wrapper">
+          <button class="help-icon-btn" id="helpToggle" aria-label="Show help">?</button>
+
+          <div id="helpTooltip" class="help-tooltip2 hidden2">
+            <h3>Configurator Guide</h3>
+
+            <div class="help-section">
+              <h4><span class="icon">📝</span> Basics</h4>
+              <ul>
+                <li>Fill in <strong>Z Clip Type</strong>, <strong>Hole Size</strong>, <strong>Quantity</strong>,
+                  <strong>Length</strong>, and
+                  <strong>Spacing</strong>.
+                </li>
+                <li>Click <strong>Add New Option</strong> to include more Z Clip options within the order.</li>
+                <li>Click <strong>CALCULATE</strong> to generate results and a PDF drawing.</li>
+              </ul>
+            </div>
+
+            <div class="help-section">
+              <h4><span class="icon">⚙️</span> Length & Optimization</h4>
+              <ul>
+                <li><strong>Increment:</strong> Lengths must be in 0.125" steps.</li>
+                <li><strong>Optimize:</strong> Use this to account for saw blade thickness (0.125").</li>
+                <li><span class="status-red">Red:</span> Optimization ON. </br> <span class="status-black">Black:</span>
+                  Optimization OFF.</li>
+              </ul>
+            </div>
+
+            <div class="help-section">
+              <h4></span> Holes & Lead-In</h4>
+              <ul>
+                <li><strong>Spacing:</strong> Must be in 0.5" increments and smaller than total length.</li>
+                <li><strong>Lead-In:</strong> Minimum lead-in is 0.5". The system automatically rounds to the nearest
+                  1/16".</li>
+              </ul>
+            </div>
+
+            <div class="help-section footer">
+              <p>You can add notes to the <strong>Additional Notes</strong> section below the form. Which will be
+                included in the PDF.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </header>
+
+  <div id="forms">
+    <form id="customerForm">
+
+      <div class="input-row dif">
+        <div class="input-group dif">
+          <label for="comp_name">Company Name</label>
+
+          <div class="with-reset">
+            <input type="text" id="comp_name" name="comp_name" />
+            <button type="button" class="reset-field" data-target="comp_name">✕</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="input-row dif">
+        <div class="input-group dif">
+          <label for="proj_name">Project Name</label>
+
+          <div class="with-reset">
+            <input type="text" id="proj_name" name="proj_name" />
+            <button type="button" class="reset-field" data-target="proj_name">✕</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="user_choice_container">
+        <div class="user_choice1">
+          <hr class="hr" />
+          <div class="input-row">
+            <div class="input-group">
+              <label for="zclip">Z Clip Options <span class="req">*</span></label>
+
+              <select id="zclip" name="zclip" class="zclip" required>
+                <option value="" selected disabled>Choose An Option</option>
+                <option value="MF250">MF250</option>
+                <option value="MF375">MF375</option>
+                <option value="MF625">MF625</option>
+                <option value="MFSTR-050">MFSTR-050</option>
+                <option value="MFSTR-075">MFSTR-075</option>
+                <option value="MFSTR-0375">MFSTR-0375</option>
+              </select>
+            </div>
+
+          </div>
+
+
+          <div class="input-row">
+
+            <div class="input-group">
+              <label for="hole_size">Hole Size <span class="req">*</span></label>
+
+              <select id="hole_size" name="hole_size" class="hole_size" required>
+                <option value="default" selected>Default</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="quant">Quantity <span class="req">*</span></label>
+              <input type="number" id="quant" name="quant" min="1" step="1" required />
+            </div>
+          </div>
+
+          <div class="input-row">
+
+            <div class="input-group">
+              <div class="label-row">
+                <label for="len" class="tooltip" data-tooltip='Length must be in 0.125" increments'>
+                  Length <span class="span2">(Inches)</span>
+                  <span class="req">*</span>
+                </label>
+
+                <button type="button" class="toggle-btn tooltip"
+                  data-tooltip='Click here to account for the saw cut thickness' aria-pressed="false" id="toggle-btn">
+                  Optimize Length
+                </button>
+              </div>
+
+              <input type="number" name="len" min="1.5" max="144" step="0.125" placeholder='Choose from 1.5" to 144"'
+                id="len" required />
+
+            </div>
+
+            <div class="input-group">
+              <label for="space" class="tooltip" data-tooltip='Spacing must be in 0.5" increment'>
+                Spacing <span class="span2">(Inches)</span><span class="req">*</span>
+              </label>
+              <input type="number" name="space" min="0" placeholder='Min. 0"' step="0.5" required id="space" />
+            </div>
+
+          </div>
+
+          <div class="input-row">
+
+            <div class="input-group">
+              <label for="notes">Additional Notes <span class="span2">(Max 130 characters)</span></label>
+              <textarea id="notes" name="notes" rows="3" cols="30" maxlength="130"
+                placeholder="e.g., Special packaging, rush order, non-standard finish, etc."></textarea>
+            </div>
+
+          </div>
+
+          <div class="input-row buttons">
+            <button type="button" class="clear-btn">Clear</button>
+            <button type="button" class="remove-btn">Remove This Option</button>
+          </div>
+
+        </div>
+      </div>
+
+      <hr class="hr" />
+
+      <div id="form_but">
+        <button type="button" id="add_choice_btn">Add New Option</button>
+        <button type="button" id="clear_all">Clear All Fields</button>
+      </div>
+
+      <div id="but">
+        <button type="submit" id="submit_btn">CALCULATE</button>
+      </div>
+
+      <p class="span2">Please note that all measurements are in inches</p>
+
+    </form>
+
+  </div>
+
+  </div>
+
+  <script src="./js/customization.js"></script>
+  <script type="module">
+    import createKindeClient from "https://cdn.jsdelivr.net/npm/@kinde-oss/kinde-auth-pkce-js@4.3.0/+esm";
+
+    (async () => {
+      const kinde = await createKindeClient({
+        client_id: "8ef309ff506b4999b2356de7a95f97f8",
+        domain: "https://monarchmetal.kinde.com",
+        redirect_uri: "https://monarchzclip.netlify.app/",
+        is_dangerously_use_local_storage: true
+      });
+
+      // Handle OAuth callback if returning from Kinde
+      if (window.location.search.includes("code=")) {
+        await kinde.handleRedirectCallback();
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      // Login button
+      document.getElementById("loginBtn").addEventListener("click", () => kinde.login());
+
+      // Show/hide screens based on auth state
+      if (await kinde.isAuthenticated()) {
+        document.getElementById("auth-screen").classList.add("hidden");
+        document.getElementById("app").classList.remove("hidden");
+      } else {
+        document.getElementById("auth-screen").classList.remove("hidden");
+        document.getElementById("app").classList.add("hidden");
+      }
+    })();
+  </script>
+</body>
+
+</html>

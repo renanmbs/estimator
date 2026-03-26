@@ -1,0 +1,829 @@
+/*
+
+Palette:
+
+Monarch Red - #C31F27
+Dark Red - #622D32
+Black - #000000
+Steel Gray - #333B41
+Aluminum Blue - #7A8EA1
+Stainless Gray - #CCCCCC
+White - #FFFFFF
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.logo-head {
+  height: 8rem;
+  width: auto;
+}
+
+.logo-heada {
+  display: flex;
+  justify-content: center;
+  /* width: 100%; */
+  /* Optional: adds back the top spacing */
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  /* background-image: url("../img/image/Monarch3Logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed; */
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+form hr {
+  border: 0;
+  border-top: 1px solid #622D32;
+  width: 70%; 
+  margin: 1.5rem auto 1.5rem auto !important; 
+  display: block; 
+}
+
+/* If you have an HR outside the form that you also want shorter/centered */
+#app > hr {
+  border: 0;
+  border-top: 1px solid #622D32;
+  width: 50%;
+  margin: 2rem auto;
+  display: block;
+}
+
+/* 
+.hr2{
+  border-color: rgba(189, 34, 37,0.5);
+  margin: 3rem 3rem 3rem 3rem;
+}
+
+.hr3{
+  border-color: rgba(189, 34, 37,0.5);
+  margin: 0rem 3rem 1rem 3rem;
+} */
+
+.dif {
+  margin: 0 !important;
+}
+
+/* Form container */
+#forms {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+/* Form styling */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Grouped row of inputs */
+.input-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.input-row2 {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.input-group2 {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select,
+textarea {
+  /* <--- ADDED TEXTAREA HERE */
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+  color: #3e4140;
+  /* Match the dark grey from your palette */
+}
+
+textarea:focus {
+  outline: none;
+  /* Remove default browser outline */
+  border-color: #C31F27;
+  /* Use the brand red for the border */
+  box-shadow: 0 0 0 2px rgba(189, 34, 37, 0.4);
+  /* Subtle red glow */
+}
+
+
+.req {
+  color: red;
+}
+
+/* Each input and label combo */
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+}
+
+select {
+  background-color: rgb(249, 249, 250);
+}
+
+option {
+  padding: 0.5rem;
+  background-color: #CCCCCC;
+  color: white;
+}
+
+#form_but {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+#form_but2 {
+  display: flex;
+  margin: 0 !important;
+  align-items: center;
+}
+
+#clear_all {
+  background-color: transparent !important;
+  font-size: smaller !important;
+  color: #C31F27 !important;
+  transition: all 0.3s ease, color 0.3s ease;
+}
+
+#form_but button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #ccccccdc;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#clear_all:hover {
+  text-decoration: underline;
+  color: #333B41 !important;
+  background-color: transparent;
+}
+
+
+/* Buttons inside each user_choice1 */
+.user_choice1 .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 !important;
+}
+#user_choice_container {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+#user_choice_container .user_choice1:first-child hr:first-child {
+  margin-top: 0 !important; 
+}
+
+.user_choice1 button {
+  background-color: #ccccccdc;
+  color: black;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user_choice1 button:hover {
+  background-color: #cccccc;
+  color: white;
+}
+
+/* Final submit button */
+#but {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#submit_btn {
+  padding: 1rem 8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #C31F27;
+  color: white;
+  transition: all 0.6s ease;
+  border: 2px solid transparent !important;
+}
+
+#submit_btn:hover {
+  background-color: #C31F27 !important;
+  /* only the color changes on hover */
+}
+
+#submit_btn:active {
+  scale: 0.9;
+}
+
+.with-reset {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.with-reset input {
+  flex: 1;
+  padding-right: 2rem;
+  /* space for button */
+}
+
+.with-reset .reset-field {
+  position: absolute;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Tooltip applied to any element with class "tooltip" */
+.tooltip {
+  position: relative;
+  /* for the tooltip pseudo-element */
+  display: inline-block;
+  cursor: pointer;
+  /* optional, gives hover feedback */
+  text-align: left;
+  /* keeps text alignment */
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  /* positions above the element */
+  left: 0;
+  /* aligns with element start */
+  background: white;
+  color: #333;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  min-width: 150px;
+  /* optional, keeps tooltip readable */
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 100;
+  font-weight: bold;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+.with-reset .reset-field:hover {
+  color: #C31F27;
+  background-color: transparent;
+}
+
+.toggle-btn.optimized-btn {
+  color: #C31F27;
+}
+
+.hole_radio input[type="radio"] {
+  margin: 1rem 0.25rem 1rem 0.5rem;
+}
+
+.hole_radio label {
+  font-weight: normal;
+}
+
+legend {
+  font-weight: bold;
+}
+
+fieldset legend span {
+  font-weight: normal;
+}
+
+label>span[data-tooltip] {
+  font-weight: normal;
+}
+
+details ul {
+  margin: 1.5rem 2rem .5rem 0;
+}
+
+details ul .red-list {
+  margin: .5rem 2rem .5rem 0 !important;
+}
+
+details li {
+  margin: 0.5rem 0rem 0 2rem;
+}
+
+details p {
+  margin: 0.5rem;
+}
+
+details span {
+  color: darkred;
+  font-weight: bold;
+}
+
+.span2 {
+  text-align: center;
+  font-size: 0.8rem;
+  color: grey;
+}
+
+#add_choice_btn {
+  background-color: #3e4140 !important;
+  color: white !important;
+  border: 2px solid transparent !important;
+  /* reserve space to prevent scaling */
+  border-radius: 4px !important;
+  transition: background-color 0.3s ease-in-out, background-color 0.3s ease-in-out !important;
+}
+
+#add_choice_btn:hover {
+  background: #3e4140d0 !important;
+  /* only the color changes on hover */
+}
+
+.tooltip {
+  text-align: left;
+}
+
+.toggle-btn {
+  background-color: transparent !important;
+  margin: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  font-style: italic !important;
+  text-decoration: none !important;
+  font-size: 0.8rem !important;
+}
+
+.toggle-btn:hover {
+  color: #c31f27d3 !important;
+  text-decoration: underline !important;
+}
+
+/* --- UNIFIED MASTER AUTH STYLES --- */
+
+.auth-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1c1c1e, #2a2a2f);
+  position: relative;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+/* Background Animated Gradient Effect */
+.auth-screen::after {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg,
+      rgba(195, 31, 39, 0.45) 0deg,
+      rgba(195, 31, 39, 0.45) 60deg,
+      rgba(204, 204, 204, 0.45) 120deg,
+      rgba(51, 59, 65, 0.45) 180deg,
+      rgba(51, 59, 65, 0.45) 240deg);
+  animation: rotateBg 60s linear infinite;
+  mix-blend-mode: overlay;
+  z-index: 0;
+  filter: blur(40px);
+  opacity: 0.85;
+}
+
+.auth-card {
+  background: rgba(20, 20, 22, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.auth-logo {
+  width: auto;
+  /* Use a fixed max-height to ensure it never gets "too big" */
+  height: 7rem;
+  /* Responsive adjustment for mobile */
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-title {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 800;
+  margin: 0;
+  color: white;
+  text-transform: uppercase;
+  /* Hard-code the spacing to prevent inherited overrides */
+  letter-spacing: 0.5px !important;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.auth-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.801);
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.auth-primary {
+  background-color: #c31f279f;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px !important;
+}
+
+.auth-primary:hover {
+  background-color: #c31f27c9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(195, 31, 39, 0.4);
+}
+
+.auth-footnote {
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* --- ANIMATIONS --- */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateBg {
+  0% {
+    transform: rotate(0deg) scale(1.5);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1.5);
+  }
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  /* This ensures the app container takes up full space and aligns its children */
+}
+
+/* MOBILE RESPONSIVENESS (Crucial for consistency) */
+@media (max-width: 500px) {
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-title {
+    font-size: 1.6rem;
+  }
+
+  .auth-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* .hidden {
+  display: none !important;
+} */
+
+/* Support Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px); /* Modern frosted glass effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  font-family: 'Montserrat', sans-serif;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.modal-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-btn {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Primary Action: Email */
+.btn-email {
+  background-color: #C31F27; /* Adjust to your brand blue */
+  color: #ffffff;
+}
+
+.btn-email:hover {
+  background-color: #622d32c8;
+  transform: translateY(-2px);
+}
+
+/* Secondary Action: Call */
+.btn-call {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+}
+
+.btn-call:hover {
+  background-color: #e5e7eb;
+}
+
+/* Tertiary Action: Close */
+.btn-close {
+  background: transparent;
+  color: #6b7280;
+  font-size: 12px;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+}
+
+/* This forces the three sections to handle alignment correctly */
+.header-section {
+  display: flex;
+  align-items: center;
+  flex: 1; /* This is the secret for perfect centering */
+}
+
+.header-section.center {
+  justify-content: center;
+  flex: 2; /* Gives more room to the title */
+  text-transform: uppercase;
+}
+
+.header-section.right {
+  justify-content: flex-end;
+}
+
+/* Adjusting the logo and title specifically */
+.logo-head {
+  height: 4rem; /* Slightly smaller for a cleaner header */
+  width: auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  white-space: nowrap; /* Prevents title from wrapping */
+}
+
+/* The circular help button */
+.help-icon-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #C31F27;
+  background: transparent;
+  color: #C31F27;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.7s ease;
+}
+
+.help-icon-btn:hover {
+  background: #C31F27;
+  color: white;
+}
+
+/* Container for the button and the popup */
+.help-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* The floating tooltip */
+.help-tooltip2 {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 500px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  padding: 20px;
+  z-index: 1000;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+}
+
+.help-tooltip2 h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #C31F27;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.help-section {
+  margin-bottom: 15px;
+}
+
+.help-section h4 {
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+  color: #333B41;
+  display: flex;
+  align-items: center;
+}
+
+.icon{
+  margin-right: 6px;
+}
+
+.help-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.help-section li {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* Visibility toggle */
+.hidden2 {
+  display: none;
+}
+
+/* Color indicators for optimization */
+.status-red { color: #C31F27; font-weight: bold; }
+.status-black { color: #000; font-weight: bold; }
