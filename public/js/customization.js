@@ -899,7 +899,8 @@ function calculatePrice(choices_data) {
 
   // Calculate Total Single Price
   // Note: We sum base_material_cost + cutting_labor_cost + hole_total_cost
-  let single_z_price = parseFloat(base_material_cost) + cutting_labor_cost + hole_total_cost;
+  // let single_z_price = parseFloat(base_material_cost) + cutting_labor_cost + hole_total_cost;
+   let single_z_price = parseFloat(base_material_cost) + hole_total_cost;
   let formatted_single_price = single_z_price.toFixed(2);
 
   console.log(`Single Z-Clip Price: $${formatted_single_price}`);
