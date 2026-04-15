@@ -179,6 +179,14 @@ const cut_time = {
   "MFSTR-075": "1"
 }
 
+const tier_setup = [
+  { max: 19, price: 20 },
+  { max: 39, price: 18 },
+  { max: 79, price: 12 },
+  { max: 159, price: 6 },
+  { max: Infinity, price: 2 }
+];
+
 let punch_time = 7;
 let setup_time = 20;
 let labor_rate = 205;
@@ -218,6 +226,10 @@ function showSupportModal(details) {
 }
 
 function checkHits(z_type, length, hole_amount) {
+  if (hole_amount === 0) {
+    return 0;
+  }
+
   const length_hits = length > 120 ? 2 : 1;
   let limitExceeded = false;
   let holes_hit = 0;
@@ -739,6 +751,13 @@ function roundToSix(length) {
   return Math.ceil(length / 6) * 6;
 }
 
+function getTieredSetupPrice(quantity) {
+  // Find the first tier where the quantity is less than or equal to the max
+  const tier = tier_setup.find(t => quantity <= t.max);
+  // Return the price of that tier (or the last one if not found)
+  return tier ? tier.price : tier_setup[tier_setup.length - 1].price;
+}
+
 // Calculate Single Price (Now used for every choice)
 // function calculatePrice(choices_data) {
 
@@ -836,12 +855,22 @@ function calculatePrice(choices_data) {
 
   let quantity_of_hits = checkHits(choices_data.zclip, choices_data.length, hole_amount);
 
+  let punch_cost_per_hit = (punch_time * labor_rate_per_sec);
+  punch_cost_per_hit = punch_cost_per_hit.toFixed(2);
+
+  let setup_cost_per_hole = getTieredSetupPrice(choices_data.quantity);
+
+  console.log(`Initial Setup Time per Hole (in sec - from tiered pricing): $${setup_cost_per_hole}`);
+
+  setup_cost_per_hole = setup_cost_per_hole * labor_rate_per_sec;
+  setup_cost_per_hole = setup_cost_per_hole.toFixed(2);
+
   // Calculate Hole Labor Cost
-  let hole_total_cost = ((punch_time * labor_rate_per_sec) + (setup_time * labor_rate_per_sec)) * quantity_of_hits;
+  let hole_total_cost = ((punch_cost_per_hit * quantity_of_hits) + (setup_cost_per_hole * hole_amount));
 
   console.log(`Hole Total Cost: $${hole_total_cost.toFixed(2)}`);
-  console.log(`Punch Rate: $${(punch_time * labor_rate_per_sec).toFixed(2)}`);
-  console.log(`Setup Rate: $${(setup_time * labor_rate_per_sec).toFixed(2)}`);
+  console.log(`Punch Rate (punch time * Labor Rate per Sec): $${punch_cost_per_hit}`);
+  console.log(`Setup Rate (tiered setup rate * Labor Rate per Sec): $${setup_cost_per_hole}`);
 
   let rounded_to_six_length = roundToSix(choices_data.length);
   console.log(`Length rounded to nearest 6 inches: ${rounded_to_six_length}"`);
@@ -1022,5 +1051,7 @@ function print_results(results_array, grand_total) {
 
   localStorage.setItem("calc_results", JSON.stringify(data));
 
-  window.open("./html/calculation_results.html", "_blank");
+  window.open("./public/html/calculation_results.html", "_blank");
 }
+
+//Add 0 spacing edge case
