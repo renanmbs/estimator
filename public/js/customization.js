@@ -891,11 +891,11 @@ function calculatePrice(choices_data) {
 
   // Calculate Cutting Labor Cost
   // Using direct lookup instead of a loop for efficiency
-  let single_cutting_labor_time = cut_time[choices_data.zclip] || 0;
-  let cutting_labor_cost = parseFloat(single_cutting_labor_time) * labor_rate_per_sec;
+  // let single_cutting_labor_time = cut_time[choices_data.zclip] || 0;
+  // let cutting_labor_cost = parseFloat(single_cutting_labor_time) * labor_rate_per_sec;
 
-  console.log(`Cutting Labor Time: ${single_cutting_labor_time}s`);
-  console.log(`Cutting Labor Rate (Cutting Labor Time * Labor Rate per Sec): $${cutting_labor_cost.toFixed(2)}`);
+  // console.log(`Cutting Labor Time: ${single_cutting_labor_time}s`);
+  // console.log(`Cutting Labor Rate (Cutting Labor Time * Labor Rate per Sec): $${cutting_labor_cost.toFixed(2)}`);
 
   // Calculate Total Single Price
   // Note: We sum base_material_cost + cutting_labor_cost + hole_total_cost
