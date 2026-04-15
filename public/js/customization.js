@@ -1051,7 +1051,7 @@ function print_results(results_array, grand_total) {
 
   localStorage.setItem("calc_results", JSON.stringify(data));
 
-  window.open("./public/html/calculation_results.html", "_blank");
+  window.open("./html/calculation_results.html", "_blank");
 }
 
 //Add 0 spacing edge case
