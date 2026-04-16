@@ -181,10 +181,10 @@ const cut_time = {
 
 const tier_setup = [
   { max: 19, price: 20 },
-  { max: 39, price: 18 },
-  { max: 79, price: 12 },
-  { max: 159, price: 6 },
-  { max: Infinity, price: 2 }
+  { max: 39, price: 14 },
+  { max: 79, price: 8 },
+  { max: 159, price: 4 },
+  { max: Infinity, price: 1 }
 ];
 
 let punch_time = 7;
